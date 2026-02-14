@@ -20,11 +20,3 @@ options:
   fan_temp: 43
 schema:
   fan_temp: int
-host_pid: true
-host_ipc: true
-privileged: true
-map:
-  - "config:rw"
-  - "share:rw"
-  - "ssl:rw"
-  - "media:rw"
