@@ -1,33 +1,39 @@
-ARG BUILD_FROM
+# Use the Home Assistant aarch64 base image
+ARG BUILD_FROM=ghcr.io/home-assistant/aarch64-base:latest
 FROM $BUILD_FROM
 
 # Set working directory
 WORKDIR /app
 
-# Install system dependencies (for Pillow, numpy, etc.)
+# Install system dependencies and Python + pip
 RUN apk add --no-cache \
+    python3 \
+    py3-pip \
+    python3-dev \
+    build-base \
     openjpeg \
     tiff \
     openblas-dev \
-    build-base \
-    python3-dev \
     linux-headers \
     libffi-dev \
     bash \
-    git
+    git \
+    libjpeg-turbo \
+    libwebp \
+    libsharpyuv
 
-# Install Python dependencies directly
-RUN python3 -m pip install --no-cache-dir \
+# Upgrade pip
+RUN pip3 install --upgrade pip
+
+# Install required Python packages
+RUN pip3 install --no-cache-dir \
     pillow \
     numpy \
     RPi.GPIO \
     smbus
 
-# Copy add-on files
-COPY . /app
+# Copy addon files (if any)
+COPY . .
 
-# Make main script executable
-RUN chmod +x ./bin/main.py
-
-# Set entrypoint
-CMD ["python3", "./bin/main.py"]
+# Set default command (optional, depending on your addon)
+CMD [ "bash" ]
