@@ -1,6 +1,6 @@
 name: "Waveshare PoE HAT (B)"
 description: "PoE HAT Support"
-version: "1.0.0"
+version: "1.0.0a"
 slug: "poe_hat"
 init: false
 host_network: true
