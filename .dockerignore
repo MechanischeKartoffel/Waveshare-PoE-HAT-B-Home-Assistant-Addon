@@ -1,0 +1,21 @@
+# Ignore Python cache files
+__pycache__/
+*.pyc
+*.pyo
+
+# Ignore local virtual environments
+venv/
+.env/
+
+# Ignore local bin folders (to avoid conflicts with /bin in container)
+bin/
+
+# Ignore git metadata
+.git/
+.gitignore
+
+# Ignore system files and temp files
+.DS_Store
+*.swp
+*.swo
+*.bak
