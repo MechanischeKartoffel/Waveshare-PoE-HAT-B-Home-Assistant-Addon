@@ -7,7 +7,7 @@ LABEL io.hass.type="addon" \
       io.hass.arch="aarch64" \
       io.hass.name="Waveshare PoE HAT (B)" \
       io.hass.description="PoE HAT Support for Raspberry Pi" \
-      io.hass.version="1.0.0"
+      io.hass.version="1.0.0a"
 
 # Set working directory
 WORKDIR /app
