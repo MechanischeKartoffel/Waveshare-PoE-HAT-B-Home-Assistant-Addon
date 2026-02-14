@@ -1,23 +1,24 @@
 ARG BUILD_FROM
 FROM $BUILD_FROM
 
-# Install requirements for add-on
-RUN \
-  apk add --no-cache \
-    python3 \
+# Set working directory
+WORKDIR /app
+
+# Install system dependencies
+RUN apk add --no-cache \
     openjpeg \
     tiff \
-    openblas-dev \
-    py3-pip
+    openblas-dev
 
-FROM python:3
-RUN \
-  pip install --no-cache-dir pillow && \
-  pip install --no-cache-dir numpy && \
-  pip3 install --no-cache-dir RPi.GPIO && \
-  pip3 install --no-cache-dir smbus
+# Install Python dependencies
+RUN pip install --no-cache-dir \
+    pillow \
+    numpy \
+    RPi.GPIO \
+    smbus
 
+# Copy add-on files
 COPY . .
 
-CMD python ./bin/main.py
-
+# Run the add-on
+CMD ["python3", "./bin/main.py"]
