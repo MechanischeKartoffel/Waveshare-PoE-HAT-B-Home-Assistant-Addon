@@ -23,7 +23,7 @@ RUN apk add --no-cache \
     libsharpyuv
 
 # Upgrade pip
-RUN pip3 install --upgrade pip
+#RUN pip3 install --upgrade pip
 
 # Install required Python packages
 RUN pip3 install --no-cache-dir \
