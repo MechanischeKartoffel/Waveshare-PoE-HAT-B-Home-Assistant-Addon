@@ -1,4 +1,3 @@
-# Use the HAOS base image passed as argument
 ARG BUILD_FROM
 FROM $BUILD_FROM
 
@@ -15,11 +14,12 @@ RUN apk add --no-cache \
     linux-headers \
     libffi-dev
 
-# Upgrade pip
-RUN pip install --upgrade pip
+# Upgrade pip using python3 -m pip
+RUN python3 -m ensurepip
+RUN python3 -m pip install --upgrade pip
 
 # Install Python dependencies
-RUN pip install --no-cache-dir \
+RUN python3 -m pip install --no-cache-dir \
     pillow \
     numpy \
     RPi.GPIO \
