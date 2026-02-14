@@ -1,10 +1,10 @@
 ARG BUILD_FROM
 FROM $BUILD_FROM
 
-# Set a safe working directory inside the container
+# Set working directory
 WORKDIR /app
 
-# Install system dependencies needed for image processing and numpy
+# Install system dependencies needed for Pillow, numpy, etc.
 RUN apk add --no-cache \
     openjpeg \
     tiff \
@@ -14,21 +14,17 @@ RUN apk add --no-cache \
     linux-headers \
     libffi-dev
 
-# Upgrade pip using python3 -m pip
-RUN python3 -m ensurepip
-RUN python3 -m pip install --upgrade pip
-
-# Install Python dependencies
+# Install Python dependencies directly (no pip upgrade)
 RUN python3 -m pip install --no-cache-dir \
     pillow \
     numpy \
     RPi.GPIO \
     smbus
 
-# Copy add-on files into the container
+# Copy add-on files
 COPY . /app
 
-# Make sure main script is executable
+# Make main script executable
 RUN chmod +x ./bin/main.py
 
 # Run the add-on
