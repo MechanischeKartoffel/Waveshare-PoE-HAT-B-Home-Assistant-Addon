@@ -1,5 +1,5 @@
 name: "Waveshare PoE HAT (B)"
-description: "PoE HAT Support for Raspberry Pi 4 and 5"
+description: "PoE HAT Support for Raspberry Pi 3B+ and 4"
 version: "1.0.0"
 slug: "poe_hat"
 init: false
