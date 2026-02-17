@@ -27,9 +27,8 @@
 # THE SOFTWARE.
 #
 
-from smbus import SMBus
+from smbus2 import SMBus
 import time
-import numpy as np
 
 class SSD1306(object):
     def __init__(self, width=128, height=32, addr=0x3c):
