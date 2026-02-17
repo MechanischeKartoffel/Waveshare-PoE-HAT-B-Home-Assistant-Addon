@@ -7,9 +7,6 @@ __pycache__/
 venv/
 .env/
 
-# Ignore local bin folders (to avoid conflicts with /bin in container)
-bin/
-
 # Ignore git metadata
 .git/
 .gitignore
