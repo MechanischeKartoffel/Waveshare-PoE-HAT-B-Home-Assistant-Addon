@@ -86,6 +86,11 @@ class SSD1306(object):
 
         self.SendCommand(0xaf)
 
+    def SetBrightness(self, value):
+        value = max(0, min(255, int(value)))
+        self.SendCommand(0x81)
+        self.SendCommand(value)
+
     def ClearBlack(self):
         for i in range(0, self.Page):
             self.SendCommand(0xb0 + i)

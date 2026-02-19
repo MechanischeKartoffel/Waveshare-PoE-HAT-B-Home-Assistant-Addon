@@ -19,9 +19,10 @@ font = ImageFont.truetype(dir_path+'/Courier_New.ttf',13)
 image1 = Image.new('1', (show.width, show.height), "WHITE")
 draw = ImageDraw.Draw(image1)
 class POE_HAT_B:
-    def __init__(self,address = 0x20):
+    def __init__(self, address=0x20, brightness=255):
         self.i2c = smbus.SMBus(1)
-        self.address = address#0x20
+        self.address = address
+        show.SetBrightness(brightness)
         self.FAN_ON()
         self.FAN_MODE = 0
 

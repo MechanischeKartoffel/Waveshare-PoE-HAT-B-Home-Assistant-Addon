@@ -18,11 +18,13 @@ try:
     with open("/data/options.json", "r") as f:
         config = json.load(f)
     fan_temp = config.get("fan_temp", 43)
+    brightness = config.get("brightness", 255)
 except (FileNotFoundError, json.JSONDecodeError):
-    logging.warning("Could not read /data/options.json, using default fan_temp=43")
+    logging.warning("Could not read /data/options.json, using defaults")
     fan_temp = 43
+    brightness = 255
 
-POE = POE_HAT_B.POE_HAT_B()
+POE = POE_HAT_B.POE_HAT_B(brightness=brightness)
 
 try:
     while True:

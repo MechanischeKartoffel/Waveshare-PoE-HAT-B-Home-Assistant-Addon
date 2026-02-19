@@ -14,5 +14,7 @@ devices:
   - /dev/gpiomem
 options:
   fan_temp: 43
+  brightness: 255
 schema:
   fan_temp: int
+  brightness: int
