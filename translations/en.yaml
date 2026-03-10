@@ -1,4 +1,10 @@
 configuration:
   fan_temp:
-    name: Fan Temperature Min
-    description: Temp for the fan to turn on. Restart Addon after change!
+    name: Fan Temperature Threshold
+    description: "Temperature (°C) at which the fan turns on. Changes apply within 1 second."
+  brightness:
+    name: OLED Brightness
+    description: "OLED display brightness (0–255). Changes apply within 1 second."
+  font:
+    name: Display Font
+    description: "Font file for the OLED display. Enter the filename of any .ttf file in the lib folder (e.g. Courier_New.ttf, Font.ttf, 04B_08__.ttf). Changes apply within 1 second. Adding a new .ttf to the lib folder and restarting will make it available."

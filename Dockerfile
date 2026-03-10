@@ -6,8 +6,8 @@ FROM $BUILD_FROM
 LABEL io.hass.type="addon" \
       io.hass.arch="aarch64" \
       io.hass.name="Waveshare PoE HAT (B)" \
-      io.hass.description="PoE HAT Support for Raspberry Pi" \
-      io.hass.version="1.0.0"
+      io.hass.description="PoE HAT Support for Raspberry Pi 3B+ & 4" \
+      io.hass.version="1.0.1"
 
 # Set working directory
 WORKDIR /app
